@@ -1,7 +1,7 @@
 function [ data ] = extract_basic_feat(A, x, y)
     resized = +prdataset(im_resize(A, [x y], 'bicubic'));
     [M, ~] = size(resized);
-    raw_out = zeros([M 13]);
+    raw_out = zeros([M 14]);
     for i = 1:M
         image = reshape(resized(i, :), [x y]);
 %       raw_out(i, 1) = mean(find(image(1,:)));
