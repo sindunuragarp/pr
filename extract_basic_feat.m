@@ -1,5 +1,5 @@
 function [ data ] = extract_basic_feat(A, x, y)
-    resized = +prdataset(im_resize(A, [x y], 'bicubic'));
+    resized = +prdataset(im_resize(A, [x y]));
     [M, ~] = size(resized);
     raw_out = zeros([M 14]);
     for i = 1:M
