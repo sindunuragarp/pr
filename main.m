@@ -1,15 +1,55 @@
 %% ------ Benchmark
 
-e = nist_eval('feature_extraction', knnc);
+n = 100;
+w = knnc([]);
+e = nist_eval('feature_extraction', w, n);
 
-%% ------ Test
+%% ------ Local : Case 1
+n = 200;
+m = 1000/n;
 
-% split data
-data = prnist([0:9],[1:200]); % max 1000
+err = zeros(m,1);
+std = zeros(m,10);
 
-% extract feature
-a = feature_extraction(data);
-w = knnc([],4);
+for i = 1:m
+    % setup classifier
+    w = knnc([]);
+    
+    % split data
+    diff = (i - 1) * n;
+    data = prnist([0:9],[diff+1:diff+n]);
 
-% cross val
-[err, std] = prcrossval(a,w,10,5);
+    % extract feature
+    a = feature_extraction(data);
+
+    % cross val
+    [err(i), std(i,:)] = prcrossval(a,w,5,1);
+end
+
+mean(err)
+mean(std)
+
+%% ------ Local : Case 2
+n = 10;
+m = 1000/n;
+
+err = zeros(m,1);
+std = zeros(m,10);
+
+for i = 1:m
+    % setup classifier
+    w = knnc([]);
+    
+    % split data
+    diff = (i - 1) * n;
+    data = prnist([0:9],[diff+1:diff+n]);
+
+    % extract feature
+    a = feature_extraction(data);
+
+    % cross val
+    [err(i), std(i,:)] = prcrossval(a,w,5,1);
+end
+
+mean(err)
+mean(std)
