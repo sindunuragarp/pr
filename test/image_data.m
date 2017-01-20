@@ -25,3 +25,4 @@ for size = sizes
     loading = loading + 1;
     fprintf('Progress: %d \n', loading / length(sizes));
 end
+fclose(file);
