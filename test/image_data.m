@@ -3,9 +3,9 @@ clear all;
 prwaitbar off;
 
 reps = 1;
-fold = 10;
+fold = 2;
 
-a = prnist(0:9, 1:1000); % all 1000 images per class
+a = prnist(0:9, 1:200); % 200 images per class
 a = setprior(a,getprior(a,0));
 b = im_box(a,0,1);
 
