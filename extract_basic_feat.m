@@ -25,4 +25,5 @@ function [ data ] = extract_basic_feat(A, x, y)
         raw_out(i,14) = props.Extrema(8, 2); % y-coor left-top
     end
     data = prdataset(raw_out, getlab(A));
+    data = setprior(data, getprior(data, 0));
 end
