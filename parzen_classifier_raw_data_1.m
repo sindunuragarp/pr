@@ -4,7 +4,7 @@ prwaitbar off;
 clc
 
 a = prnist(0:9, 1:1000);
-a = preprocess(a);
+a = preprocess(a, 15);
 smoothing = 0:0.05:1;
 
 smooth = 0;
