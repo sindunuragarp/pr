@@ -1,11 +1,11 @@
 close all;
 clear all;
-prwaitbar off;
+prwaitbar on;
 
 reps = 1;
-fold = 2;
+fold = 10;
 
-a = prnist(0:9, 1:200); % 200 images per class
+a = prnist(0:9, randperm(1000, 200)); % randomly permuted 200 images per class
 a = setprior(a,getprior(a,0));
 b = im_box(a,0,1);
 
