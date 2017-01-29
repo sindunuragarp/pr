@@ -1,4 +1,5 @@
-function [dataset] = dataset_create(images,labels)
+function [dataset] = dataset_create(images,labels,width,height)
    flat_images = images(:,:);
-   dataset = prdataset(images,labels);
+   dataset = prdataset(flat_images,labels);
+   dataset.featsize = [widht height];
 end

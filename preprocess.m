@@ -3,7 +3,7 @@ function [ data ] = preprocess(a, size, method)
         method = 'nearest';
     end   
     if nargin < 2
-        size = 20;
+        size = 30;
     end
     a = im_box(a, 0, 1);
     a = im_rotate(a);
