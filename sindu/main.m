@@ -4,8 +4,13 @@ w = knnc([]);
 e = nist_eval('extract_basic_feat', w, n);
 
 %% ------ Load All Data
-prdata = prnist([0:9],[1:1000]);
-prdata = prepare_image(prdata);
+prdata_raw = prnist([0:9],[1:1000]);
+
+sample = gendat(prdata_raw,ones(1,10)*10);
+processed = prepare_image(sample);
+
+%% ------ Run Preprocess (takes a long time)
+prdata = prepare_image(prdata_raw);
 
 %% ------ Local
 rep = 5;

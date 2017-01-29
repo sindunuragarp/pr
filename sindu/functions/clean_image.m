@@ -1,5 +1,5 @@
 function out = clean_image(im, dim)
-    %% morphological closing
+    %% morphological opening
     se = strel('disk',1);
     im = imopen(im,se);
 
