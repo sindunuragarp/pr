@@ -2,7 +2,7 @@
 
 n = 100;
 w = knnc([]);
-e = nist_eval('feature_extraction', w, n);
+e = nist_eval('extract_basic_feat', w, n);
 
 %% ------ Local : Case 1
 n = 200;
