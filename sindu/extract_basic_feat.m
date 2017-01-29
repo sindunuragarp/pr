@@ -1,4 +1,4 @@
-function [ data ] = extract_basic_feat(A, x, y)
+function [ dataset ] = extract_basic_feat(A, x, y)
     resized = +prdataset(im_resize(A, [x y]));
     [M, ~] = size(resized);
     raw_out = zeros([M 14]);
@@ -24,6 +24,7 @@ function [ data ] = extract_basic_feat(A, x, y)
         raw_out(i,13) = props.Extrema(7, 2); % y-coor left-bottom
         raw_out(i,14) = props.Extrema(8, 2); % y-coor left-top
     end
-    data = prdataset(raw_out, getlab(A));
-    data = setprior(data, getprior(data, 0));
+
+    dataset = prdataset(raw_out, getlab(A));
+    dataset = setprior(data, getprior(dataset, 0));
 end
