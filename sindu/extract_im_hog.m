@@ -1,4 +1,4 @@
-function dataset = extract_im_hog(a)
+function dataset = extract_im_hog(a, cells)
     %% data info
     n = size(a,1);
     labels = getlabels(a);
@@ -6,7 +6,7 @@ function dataset = extract_im_hog(a)
     %% loop
     for i = 1:n
         im = data2im(a(i,:));
-        hog = get_hog(im);
+        hog = get_hog(im, cells);
         feat(i,:) = hog(:);
     end
 

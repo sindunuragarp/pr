@@ -1,9 +1,9 @@
-function histograms = get_hog(im)
+function histograms = get_hog(im, cells)
     %% vars
     
     % number of HOG windows per bound box
-    nwin_x = 4;
-    nwin_y = 4;
+    nwin_x = cells;
+    nwin_y = cells;
     
     % number of histogram bins
     bins = 9;
