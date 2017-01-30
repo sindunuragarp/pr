@@ -1,7 +1,7 @@
 %% ------ Benchmark
 n = 100;
 w = knnc([]);
-e = nist_eval('extract_basic_feat', w, n);
+e = nist_eval('my_rep_features', w, n);
 
 %% ------ Load All Data
 prdata_raw = prnist([0:9],[1:1000]);

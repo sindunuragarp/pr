@@ -1,13 +1,17 @@
-function [dataset] = extract_im_feat(a)
+function [dataset] = extract_im_feat(a, dim)
+
+    if (nargin < 2)
+        dim = 30;
+    end
 
     % data info
-    resized = +prdataset(im_resize(a, [50 50]));
+    resized = +prdataset(im_resize(a, [dim dim]));
     [n, ~] = size(resized);
     raw_out = zeros([n 14]);
 
     % extract basic features
     for i = 1:n
-        image = reshape(resized(i, :), [50 50]);
+        image = reshape(resized(i, :), [dim dim]);
         props = regionprops(image, 'Area', 'Perimeter', 'Centroid', 'Orientation', 'EulerNumber', 'Extrema');
         
         raw_out(i, 1) = props.Area;
