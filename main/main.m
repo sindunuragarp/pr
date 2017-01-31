@@ -1,9 +1,6 @@
 %% ------ Load All Data
 prdata_raw = prnist([0:9],[1:1000]);
 
-sample = gendat(prdata_raw,ones(1,10)*10);
-processed = prepare_image(sample);
-
 %% ------ Run Preprocess (takes a long time if used for all data)
 prdata = prepare_image(prdata_raw);
 
@@ -217,10 +214,10 @@ mean(err,2)
 
 %% ------ Benchmark Case 1
 w = parzenc(h);
-e = nist_eval('feat_case1', w, 100)
+e = nist_eval('my_rep', w, 100)
 
 %% ------ Benchmark Case 2
 sh = h(1:100:10000,:);
 m = pcam(sh,0.73);
 w = nmc(sh*m);
-e = nist_eval('feat_case1', m*w, 100)
+e = nist_eval('my_rep', m*w, 100)
