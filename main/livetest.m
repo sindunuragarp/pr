@@ -35,10 +35,11 @@ dataset.featsize = [30 30];
 lvdata = dataset;
 
 %% ------ Live Test Case 1
-w = parzenc(h);
+w = parzenc(h,0.65);
 test = extract_im_hog(lvdata, 6);
-
-% check prediction here
+[e,f] = testc(test,w);
+e
+f
 
 %% ------ Live Test Case 2
 sh = h(1:100:10000,:);
@@ -48,4 +49,6 @@ w = nmc(sh*m);
 test = extract_im_hog(lvdata, 6);
 test = m(test);
 
-% check prediction here
+[e,f] = testc(test,w);
+e
+f

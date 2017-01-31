@@ -213,7 +213,7 @@ end
 mean(err,2)
 
 %% ------ Benchmark Case 1
-w = parzenc(h);
+w = parzenc(h,0.65);
 e = nist_eval('my_rep', w, 100)
 
 %% ------ Benchmark Case 2
